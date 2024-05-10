@@ -8,7 +8,7 @@ export const setupViewport = (viewport: ViewportFrame, distance = DISTANCE, fov 
 	camera.FieldOfView = fov
 }
 
-export const rotateModel = (model: Model) => {
+export const rotateModel = (model: Model, speed = ROTATION_SPEED) => {
 	const event = RunService.RenderStepped.Connect(() => {
 		if (!model.Parent) {
 			event.Disconnect()
@@ -16,7 +16,7 @@ export const rotateModel = (model: Model) => {
 			return
 		}
 
-		model.PivotTo(model.GetPivot()!.mul(CFrame.Angles(0, math.rad(ROTATION_SPEED), 0)))
+		model.PivotTo(model.GetPivot()!.mul(CFrame.Angles(0, math.rad(speed), 0)))
 	})
 
 	return event
