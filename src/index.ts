@@ -16,7 +16,7 @@ export const rotateModel = (model: Model) => {
 			return
 		}
 
-		model.PivotTo(model.GetPivot()!.mul(CFrame.Angles(0, ROTATION_SPEED, 0)))
+		model.PivotTo(model.GetPivot()!.mul(CFrame.Angles(0, math.rad(ROTATION_SPEED), 0)))
 	})
 
 	return event
